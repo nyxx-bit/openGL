@@ -1,0 +1,10 @@
+
+.gitattributes
+openGLNyxx/.vs/openGLNyxx/v16/Browse.VC.db
+openGLNyxx/.vs/openGLNyxx/v16/Browse.VC.db-shm
+openGLNyxx/.vs/openGLNyxx/v16/Browse.VC.db-wal
+openGLNyxx/.vs/openGLNyxx/v16/Browse.VC.opendb
+openGLNyxx/openGLNyxx.sln
+openGLNyxx/openGLNyxx.vcxproj
+openGLNyxx/openGLNyxx.vcxproj.filters
+openGLNyxx/openGLNyxx.vcxproj.user
