@@ -25,3 +25,8 @@ openGLNyxx/x64/Debug/openGLNyxx.pdb
 openGLNyxx/x64/Debug/openGLNyxx.tlog/link.read.1.tlog
 openGLNyxx/x64/Debug/vc142.idb
 openGLNyxx/x64/Debug/vc142.pdb
+*.ipch
+*.exe
+*.ilk
+*.log
+*.pdb
