@@ -5,7 +5,6 @@ namespace fs = std::filesystem;
 
 #include"Model.h"
 
-
 const unsigned int width = 800;
 const unsigned int height = 800;
 
@@ -44,8 +43,8 @@ int main()
 	// So that means we only have the modern functions
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-	// Create a GLFWwindow object of 800 by 800 pixels, naming it "YoutubeOpenGL"
-	GLFWwindow* window = glfwCreateWindow(width, height, "YoutubeOpenGL", NULL, NULL);
+	// Create a GLFWwindow object of 800 by 800 pixels, naming it "openGLNyxx"
+	GLFWwindow* window = glfwCreateWindow(width, height, "openGLNyxx", NULL, NULL);
 	// Error check if the window fails to create
 	if (window == NULL)
 	{
@@ -61,10 +60,6 @@ int main()
 	// Specify the viewport of OpenGL in the Window
 	// In this case the viewport goes from x = 0, y = 0, to x = 800, y = 800
 	glViewport(0, 0, width, height);
-
-
-
-
 
 	// Generates shaders
 	Shader shaderProgram("default.vert", "default.frag");
@@ -83,9 +78,6 @@ int main()
 	glUniform1i(glGetUniformLocation(framebufferProgram.ID, "screenTexture"), 0);
 	glUniform1f(glGetUniformLocation(framebufferProgram.ID, "gamma"), gamma);
 
-
-
-
 	// Enables the Depth Buffer
 	glEnable(GL_DEPTH_TEST);
 
@@ -99,10 +91,8 @@ int main()
 	// Uses counter clock-wise standard
 	glFrontFace(GL_CCW);
 
-
 	// Creates camera object
 	Camera camera(width, height, glm::vec3(0.0f, 0.0f, 2.0f));
-
 
 	// Path to resources
 	std::string parentDir = (fs::current_path().fs::path::parent_path()).string();
@@ -112,7 +102,6 @@ int main()
 	// Load in models
 	Model ground((parentDir + groundPath).c_str());
 	Model trees((parentDir + treesPath).c_str());
-
 
 	// Prepare framebuffer rectangle VBO and VAO
 	unsigned int rectVAO, rectVBO;
@@ -127,7 +116,6 @@ int main()
 	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 4 * sizeof(float), (void*)(2 * sizeof(float)));
 
 
-
 	// Variables to create periodic event for FPS displaying
 	double prevTime = 0.0;
 	double crntTime = 0.0;
@@ -137,7 +125,6 @@ int main()
 
 	// Use this to disable VSync (not advized)
 	//glfwSwapInterval(0);
-
 
 	// Create Frame Buffer Object
 	unsigned int FBO;
@@ -226,8 +213,6 @@ int main()
 	shadowMapProgram.Activate();
 	glUniformMatrix4fv(glGetUniformLocation(shadowMapProgram.ID, "lightProjection"), 1, GL_FALSE, glm::value_ptr(lightProjection));
 
-
-
 	// Framebuffer for Cubemap Shadow Map
 	unsigned int pointShadowMapFBO;
 	glGenFramebuffers(1, &pointShadowMapFBO);
@@ -275,8 +260,6 @@ int main()
 	glUniform3f(glGetUniformLocation(shadowCubeMapProgram.ID, "lightPos"), lightPos.x, lightPos.y, lightPos.z);
 	glUniform1f(glGetUniformLocation(shadowCubeMapProgram.ID, "farPlane"), farPlane);
 
-
-
 	// Main while loop
 	while (!glfwWindowShouldClose(window))
 	{
@@ -290,7 +273,7 @@ int main()
 			// Creates new title
 			std::string FPS = std::to_string((1.0 / timeDiff) * counter);
 			std::string ms = std::to_string((timeDiff / counter) * 1000);
-			std::string newTitle = "YoutubeOpenGL - " + FPS + "FPS / " + ms + "ms";
+			std::string newTitle = "openGLNyxx - " + FPS + "FPS / " + ms + "ms";
 			glfwSetWindowTitle(window, newTitle.c_str());
 
 			// Resets times and counter
@@ -385,8 +368,6 @@ int main()
 		// Take care of all GLFW events
 		glfwPollEvents();
 	}
-
-
 
 	// Delete all the objects we've created
 	shaderProgram.Delete();
